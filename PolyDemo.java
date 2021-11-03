@@ -86,7 +86,7 @@ class PolyDemo extends JFrame {
 			 *
 			 *******************************/
 			switch( ( int )(Math.random() * 4) ) {
-				case 0: 	retVal = new Rectangle( x,y,getRandInt(),getRandInt() );
+				case 0: 	retVal = new MinecraftPigFace( x,y);
 							break;
 				case 1: 	retVal = new Pokeball( x,y);
 							break;
@@ -98,6 +98,10 @@ class PolyDemo extends JFrame {
 		
 			return retVal;
 		}
+
+
+
+	
 
 	}	
 	

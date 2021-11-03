@@ -5,7 +5,8 @@ Assignment: Shape inheritance assignment
 
 Purpose of this file/class is to draw out a pokeball by primarily using .fillArc
 ~One of my homework classes
-*/import java.awt.*;
+*/
+import java.awt.*;
 public class Pokeball extends Shape{
 
     // constructor for the pokeball that only takes an x and y since all other inputs must be very specific
