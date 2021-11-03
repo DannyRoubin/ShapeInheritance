@@ -1,3 +1,10 @@
+/*
+Name: Danny Roubin
+Class: CSS 143 Sec B
+Assignment: Shape inheritance assignment
+
+Purpose of this file/class is to essentially be a driver to be able to display the four shapes
+*/
 import java.util.*;
 import javax.swing.*;
 import java.awt.*;
@@ -15,12 +22,13 @@ class PolyDemo extends JFrame {
 	public PolyDemo() {
 		getContentPane().add( new PolyDemoPanel() );
 		//just some windowing stuff that must happen for all Frames
-		setSize( 300,300 );
+		// increased the window size as per personal preference
+		setSize( 1000,1000 );
 		setVisible( true );
 		setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
 	}
 	
-	
+	// main that calls PolyDemo 
 	public static void main( String args[] ) {
 		PolyDemo myApp = new PolyDemo();
 	}
@@ -30,20 +38,12 @@ class PolyDemo extends JFrame {
 	//the purpose of this class is solely to support the JFrame class above, and I don't want it reused in arbitrary contexts, so by nesting this class here
 	//I can indicate the intent a bit more clearly that this class "goes with" the class above it
 	//In general, each class is a separate entity that should be contained in a separate file
+
+	// to abbreviate, this is a helper class that allows us to easily populate myShape with a random shape
 	public class PolyDemoPanel extends JPanel {		
 		Shape[] myShapes= new Shape[20];
 		
 		public PolyDemoPanel() {
-			//Shape a = new Shape( getRandInt(), getRandInt());
-			//Shape b = new Circle( getRandInt(), getRandInt(), getRandInt() );
-		
-			//a = new Square(getRandInt(), getRandInt(), getRandInt(), getRandInt() );
-		
-			//a = getRandShape();
-
-			//( (Circle) b ).getRadius();
-		
-		
 			/*********************************************************************************************************************
 			* Code for populating our myShapes changes minimally when new classes are introduced (only in getRandShape())
 			*********************************************************************************************************************/
@@ -68,15 +68,17 @@ class PolyDemo extends JFrame {
 			}	
 		}
 			
-		
+		// method that returns a random int
 		public int getRandInt() {
 			return ( (int) ( Math.random() * 200 ) );	
 		}
 		
+		// method to return a random shape
 		public Shape getRandShape() {
 			Shape retVal = null;
-			final int x = getRandInt();
-			final int y = getRandInt();
+			// multiplying getRandInt by 3 to help space the shapes out a bit more so they're not all clumped together
+			final int x = getRandInt()*3;
+			final int y = getRandInt()*3;
 			
 			
 			/********************************
@@ -84,18 +86,19 @@ class PolyDemo extends JFrame {
 			 *
 			 *******************************/
 			switch( ( int )(Math.random() * 4) ) {
-				case 0: 	retVal = new Spray( x,y );//new Square( x, y, getRandInt(), getRandInt() );
+				case 0: 	retVal = new Rectangle( x,y,getRandInt(),getRandInt() );
 							break;
-				case 1: 	retVal = new Spray( x,y );//Cube( x, y, getRandInt(), getRandInt(), getRandInt() );
+				case 1: 	retVal = new Pokeball( x,y);
 							break;
 				case 2: 	retVal = new Square( x,y, getRandInt());
 							break;
-				case 3: 	retVal = new Circle( x,y, getRandInt());////new Cylinder( x,y, getRandInt(), getRandInt() );
+				case 3: 	retVal = new Circle( x,y, getRandInt());
 							break;				
 			}
 		
 			return retVal;
 		}
+
 	}	
 	
 }
