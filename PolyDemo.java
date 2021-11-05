@@ -85,6 +85,8 @@ class PolyDemo extends JFrame {
 			 * Polymorphic extensibility demo
 			 *
 			 *******************************/
+
+			//  gets a random shape each time by multiplying math.random result by 4
 			switch( ( int )(Math.random() * 4) ) {
 				case 0: 	retVal = new MinecraftPigFace( x,y);
 							break;

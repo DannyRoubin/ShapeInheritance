@@ -41,10 +41,12 @@ public class Circle extends Shape {
         g2d.drawOval(x, y, r, r);
 	}
 
+    // get method for the radius of the circle
     public int getRadius() {
         return this.radius;
     }
 
+    // setter for the radius of the circle
     public void setRadius(int radius) {
         this.radius = radius;
     }
